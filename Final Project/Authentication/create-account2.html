@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Jose Panganiban MHO</title>
+
+    <link rel="stylesheet" href="style1.css">
+
+</head>
+<body>
+    <section class="container forms">
+        <div class="container">
+             <img id="web-logo" src="/Media/MHO Logo.png" alt="JPANG MHO" class="form-logo">
+             <h1>Become a Blood Donor!</h1>
+             <p>Participate in local mass blood donation programs </p>
+                <form id="step2-form" novalidate>
+                    <div>
+                        <h2>Create Account</h2>
+                        <p>Sign up to register in mass blood donation programs</p>
+                    </div>
+
+                    <div>
+                        <div class="label"><label for="email">Email:</label><br><br></div>
+                        <input type="email" id="email" name="email" autocomplete="email" placeholder="youremail@example.com" required>
+                        <br><br>
+                    </div>
+
+                    <div>
+                        <div class="label"><label for="number">Number:</label><br><br></div>
+                        <input type="text" id="number" name="number" autocomplete="tel" placeholder="+639XXXXXXXXX" required>
+                        <br><br>
+                    </div>
+
+                    <div>
+                        <div class="label"><label for="password">Password:</label><br><br></div>
+                        <input type="password" id="password" name="password" autocomplete="new-password" placeholder="s@mpleP4s5w0rd" required>
+                    </div>
+                    <div class="hint">
+                        <p>Use at least 8 characters with letters and numbers. Symbols make it stronger.</p>
+                    </div>
+
+                    <div>
+                        <div class="label"><label for="confirm_password">Confirm Password:</label><br><br></div>
+                        <input type="password" id="confirm_password" name="confirm_password" autocomplete="new-password" placeholder="s@mpleP4s5w0rd" required>
+                        <div class="hint"><p>Re-enter your password for confirmation.</p></div>
+                        <br><br>
+                    </div>
+
+                    <div>
+                        <button id="create-account-btn" type="submit" name="create_account">Create Account</button>
+                        <div class="form-status" id="form-status" aria-live="polite"></div>
+                    </div>
+
+                    <p><a href="create-account1.html">&larr; Back</a></p>
+                </form>
+        </div>
+    </section>
+
+    <script src="config.js"></script>
+    <script src="api.js"></script>
+    <script src="create-account2.js"></script>
+</body>
+
+</html>
