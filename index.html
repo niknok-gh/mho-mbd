@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MHO Jose Panganiban</title>
+    <link rel="icon" type="image/x-icon" href="./Media/MHO Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        /* GENERAL */
+        * {
+            /* Disables text selection */
+            -webkit-user-select: none; /* Chrome, Safari, Edge */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* Older IE */
+            user-select: none;
+        }
+        img {
+            /* Disables image dragging and selection */
+            -webkit-user-drag: none;
+            user-select: none;
+            pointer-events: none;
+        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+            overflow-x: clip;
+            max-width: 100%;
+        }
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu,'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f6fff9;
+            overflow-x: clip;
+            max-width: 100%;
+        }
+        /* HEADER AND NAVIGATION BAR */
+        header {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            position: sticky;
+            z-index: 99;
+            top: 0;
+            background-color: #f7faf7;
+            padding: .5rem min(10rem, 2%);
+            box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.15);
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            width: min(100rem, 100vw);
+            overflow: hidden;
+        }
+        .header-logo {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+            min-width: 20rem;
+        }
+        .header-image {
+            width: 100%;
+            max-width: 2.5rem;
+            max-height: 2.5rem;
+        }
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            color: #263b31;
+            margin-left: 10px;
+            padding: 0;
+        }
+        .header-text h1 {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+        .header-text p {
+            font-size: 0.6rem;
+            margin-top: 0;
+        }
+        nav ul {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            list-style: none;
+        }
+        nav a {
+            text-decoration: none;
+            padding: 0;
+            margin: 0;
+            color: #263b31;
+            font-size: 1rem;
+            padding: 0rem 1rem;
+            transition: 200ms ease;
+        }
+        nav a:hover {
+            color: #16845b;
+        }
+        /* HAMBURGER MENU */
+        .hamburger {
+            position: fixed;
+            margin: 0px;
+            top: 0;
+            right: 0;
+            z-index: 999;
+            height: 100dvh;
+            width: 250px;
+            background-color: #f7faf78f;
+            backdrop-filter: blur(50px);
+            box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 2em 1em 0em 1em;
+            gap: 2rem;
+        }
+        .hamburger li, .hamburger a {
+            width: 100%;
+        }
+        .menu-button {
+            display: none;
+        }
+        /* HERO SCREEN */
+        #Home {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 0rem max(2%, 12rem) 5rem max(2%, 12rem);
+            top: 0;
+            height: min(85dvh);
+            background-color: #f7faf7;
+        }
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: max(60%, 700px);
+            margin: min(10rem, 100px) 0px;
+            padding-right: 3rem;
+            padding-top: 5rem;
+        }
+        .hero-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 1rem;
+            width: max(75%, 800px);
+        }
+        .hero-text h1 {
+            display: flex;
+            margin: 0px;
+            font-size: clamp(2rem, (2.5dvw + 1rem), 3rem);
+            color: #263b31;
+        }
+        .hero-text p {
+            font-size: clamp(0.75rem, (0.5dvw + 1rem), 2rem);
+            margin-top: 1rem;
+            line-height: 1.6;
+            color: #73877b;
+        }
+        .hero-text a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #263b31;
+            color: #f7faf7;
+            text-decoration: none;
+            border: none;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 1rem 3rem;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.18);
+            padding: clamp(.25rem, 35px, 1.25rem);
+            width: max(25%, 250px);
+            height: min(1.75rem, 750x);
+            border-radius: 12px;
+            transition: 350ms ease;
+        }
+        .hero-text a:hover {
+            background-color: #315C46;
+        }
+        .hero-text i {
+            transform: scale(1.25) translateY(1.5px);
+        }
+        .compatability-chart {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: min(650px, 75%);
+        }
+        .compatability-chart img {
+            width: 100%;
+            box-sizing: border-box;
+            object-fit: contain;
+            transform: translateY(2rem);
+        }
+        /* LEARN MORE SCREEN */
+        #Information {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #F3F7F3;
+            padding: 1rem max(5%, 1.5rem) 1rem max(5%, 1.5rem);
+            min-height: 90dvh;
+            height: auto;
+        }
+        .definition {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: max(65%, 450px);
+        }
+        .definition h1 {
+            color: #263b31;
+            font-size: clamp(2rem, (2dvw + 1rem), 4rem);
+            margin-bottom: 0px;
+        }
+        .definition p {
+            font-size: clamp(0.75rem, (0.25dvw + 1rem), 1.25rem);
+            line-height: 1.6;
+            color: #73877b;
+            margin-top: 1rem;
+        }
+        .additional-info {
+            display: grid;
+            grid-auto-columns: 0.5fr 1fr;
+            grid-auto-rows: 1fr;
+            gap: 1.5em;
+            grid-auto-flow: column;
+            justify-content: center;
+            align-content: center;
+            margin: 2rem 10rem;
+            grid-template-areas: 
+            "box1 box2"
+            "box1 box3";
+        }
+        .info-box {
+            background-color: #F3F7F3;
+            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.18);
+            padding: 0.75rem 2rem;
+            border-radius: 15px;
+            border: 2px solid #73877b25;
+            text-align: left;
+            transition: 200ms ease;
+        }
+        .info-box h3 {
+            color: #16845b;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+            font-size: clamp(0.8rem, (1.5dvw + 1rem), 1.5rem);
+        }
+        .info-box p {
+            color: #73877b;
+            margin-top: 0.5rem;
+            line-height: 1.6;
+            font-size: clamp(0.75rem, (0.25dvw + 1rem), 1.25rem);
+        }
+        .info-box:hover {
+            transform: scale(1.0025) !important;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
+        }
+        /* BENEFITS SCREEN */
+        #Benefits {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f7faf7;
+            padding: 1rem min(10rem, 5%) 1rem min(10rem, 5%);
+            min-height: 85dvh;
+            height: auto;
+        }
+        .benefit-header {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: max(65%, 450px);
+        }
+        .benefit-header h1 {
+            color: #263b31;
+            font-size: clamp(2rem, (2dvw + 1rem), 4rem);
+            margin-bottom: 0rem;
+        }
+        .benefit-header p {
+            font-size: clamp(0.75rem, (0.25dvw + 1rem), 2rem);
+            line-height: 1.6;
+            color: #73877b;
+            margin-top: 0.5rem;
+        }
+        .benefit-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1.5em;
+            justify-content: center;
+            align-content: center;
+            margin: 2em 10rem;
+            grid-template-areas: 
+            "box1 box2" 
+            "box3 box4";
+        }
+        .benefit-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f7faf7;
+            box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.18);
+            padding: 2rem 2.5rem 1rem 2.5rem;
+            border-radius: 15px;
+            border: 2px solid #73877b25;
+            position: relative;
+            transition: 350ms ease;
+        }
+        .benefit-box i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #16845b80;
+            color: #16845b;
+            border-radius: 12px;
+            transform: scale(1.5);
+            width: 3em;
+            height: 3em;
+            transition: 200ms ease;
+            margin-bottom: 0.25rem;
+        }
+        .benefit-box h3 {
+            color: #16845b;
+            margin-bottom: 0px;
+            font-size: clamp(0.75rem, (0.35dvw + 1rem), 2rem);
+        }
+        .benefit-box p {
+            color: #73877b;
+            font-size: clamp(0.75rem, (0.35dvw + 0.75rem), 1.75rem);
+            margin-top: 1rem;
+            text-align: center;
+        }
+        .benefit-box:hover {
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15);
+            transform: scale(1.005) translateY(-0.5px) !important; 
+            z-index: 10;
+        }
+        .benefit-box:hover i {
+            background-color: #263b31;
+            color: #f7faf7;
+            transform: scale(1.6);
+        }
+        #FAQs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #F3F7F3;
+            padding: 1rem min(10rem, 5%) 1rem min(10rem, 5%);
+            min-height: 100dvh;
+            height: auto;
+        }
+        .FAQ-header {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: max(65%, 500px);
+        }
+        .FAQ-header h1 {
+            color: #263b31;
+            font-size: clamp(2rem, (2dvw + 1rem), 4rem);
+            margin-bottom: 0px;
+        }
+        .FAQ-header p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: #73877b;
+            margin-top: 1rem;
+        }
+        .FAQ-questions {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            width: max(65%, 500px);
+        }
+        .FAQ-block-header h2 {
+            color: #16845b;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .FAQ-block-header hr {
+            border: 0.05px solid #73877b25;
+            margin-bottom: 1rem;
+        }
+        .FAQ-block {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+        .accordion-item {
+            display: flex;
+            flex-direction: column;
+            background-color: #f7faf7;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);
+            padding: 0rem 0rem 1.25rem 0rem;
+            border-radius: 15px;
+            border: 2px solid #73877b25;
+        }
+        .accordion-item summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            color: #263b31;
+            padding: 1.25rem 1.25rem 0rem 1.25rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .accordion-translation {
+            font-style: italic;
+            letter-spacing: 0.25px;
+            margin-top: 0.25rem;
+        }
+        .accordion-content span {
+            font-style: italic;
+            color: #73877b;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .accordion-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .accordion-item summary::after {
+            content: url("/Icons/arrow-down.svg");
+            display: inline-block;
+            width: 1.5rem;
+            background-color: #16845b;
+            mask: url("/Icons/arrow-down.svg") center / contain no-repeat;
+            -webkit-mask: url("/Icons/arrow-down.svg") center / contain no-repeat;
+            transition: 250ms ease;
+        }
+        .accordion-item[open] summary::after {
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            display: flex;
+            flex-direction: column;
+            color: #73877b;
+            padding: 0rem 1.25rem;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        @supports (interpolate-size: allow-keywords) {
+            :root {
+                interpolate-size: allow-keywords;
+            }
+            .accordion-item::details-content {
+                height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: 250ms ease, 250ms ease, content-visibility 0.35s allow-discrete;
+            }
+            .accordion-item[open]::details-content {
+                height: auto;
+                opacity: 1;
+            }
+        }
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #263b31;
+            box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.5);
+            padding: 1rem 10dvw;
+            margin-top: 2dvh;
+        }
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 3.5rem;
+            padding: 0.5rem 0px;
+        }
+        .footer-logo img {
+            max-width: 100%;
+        }
+        .footer-line hr {
+            border: 0.05px solid #73877b25;
+        }
+        .footer-about-us {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+            gap: 1.5rem;
+        }
+        .footer-about-us h3 {
+            color: #f7faf7;
+            font-size: 1rem;
+            margin: 12px 0px 0px 0px;
+        }
+        .footer-about-us p {
+            color: #f7faf780;
+            font-size: 0.9em;
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+        .contact-detail {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+            color: #f7faf780;
+            gap: 0.25rem;
+        }
+        .about-box {
+            max-width: min(550px, 50%);
+        }
+        .institution {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+        }
+        .institution h1 {
+            color: #f7faf7;
+            font-size: 1rem;
+            margin-bottom: 0px;
+        }
+        .institution p {
+            color: #f7faf7;
+            font-size: 0.8rem;
+            font-weight: 400;
+            margin-top: 0.5rem;
+        }
+
+        /* MEDIA QUERIES */
+
+        /* Large Desktop Screen */
+        @media (max-width: 1600px) {
+            #Home {
+                padding: 0rem max(2%, 5rem) 5rem max(2%, 5rem);
+            }
+            .compatability-chart {
+                width: min(650px, 80%);
+            }
+            .hero-text h1 {
+                font-size: clamp(2rem, (2.5dvw + 1rem), 2.5rem);
+            }
+            #Information {
+                padding: 1rem min(2%, 1rem) 1rem min(2%, 1rem);
+            }
+            #Benefits {
+                padding: 1rem min(2%, 1rem) 1rem min(2%, 1rem);
+            }
+            #FAQs {
+                padding: 1rem min(2%, 1rem) 1rem min(2%, 1rem);
+            }
+            .FAQ-questions {
+                width: max(70%, 500px);
+            }
+            .footer-container {
+                padding: 1rem 7dvw;
+            }
+        }
+        /* Small Laptop Screen */
+        @media (max-width: 1199px) {
+            #Home {
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+                min-height: 85dvh;
+                padding: 0rem max(2%, 7rem) 5rem max(2%, 7rem);
+            }
+            .hero-text {
+                flex-direction: column;
+                margin: 0px 0px 2rem 0px;
+                width: max(75%, 800px);
+                padding-right: 0px;
+            }
+            .hero-text h1 {
+                font-size: clamp(2rem, (3dvw + 1rem), 4rem);
+            }
+            .hero-text p {
+                font-size: clamp(0.75rem, (0.75dvw + 1rem), 2rem);
+            }
+            .hero-text i {
+                transform: scale(1.25) translateY(1.5px);
+            }
+            .compatability-chart {
+                min-width: 600px;
+            }
+            .definition {
+                width: max(75%, 700px);
+            }
+            .definition p {
+                font-size: clamp(0.75rem, (0.75dvw + 1rem), 1.25rem);
+            }
+            .additional-info {
+                grid-auto-columns: 1fr;
+                grid-template-areas: "box1" "box2" "box3";
+            }
+            .benefit-header p {
+                font-size: clamp(0.75rem, (0.75dvw + 1rem), 1.25rem);
+            }
+            .benefit-info {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+                grid-template-areas: "box1" "box2" "box3" "box4";
+            }
+            .benefit-box h3 {
+                font-size: clamp(0.8rem, (1.5dvw + 1rem), 1.5rem);
+            }
+            .benefit-box p {
+                font-size: clamp(0.75rem, (0.25dvw + 1rem), 1.25rem);
+                line-height: 1.6;
+                padding: 0px 8% 0px 8%;
+            }
+            .FAQ-header p {
+                font-size: clamp(0.75rem, (0.75dvw + 1rem), 1.25rem);
+            }
+            .footer-container {
+                padding: 1rem 3dvw;
+            }
+            .footer-about-us h3 {
+                font-size: 0.85rem;
+            }
+            .footer-about-us p {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Tablet Screen */
+        @media (max-width: 1023px) {
+            #Home {
+                padding: 1rem min(6%, 2rem) 5rem min(6%, 2rem);
+            }
+            .hero-text {
+                width: max(85%, 450px);
+            }
+            #Information {
+                padding: 1rem min(6%, 2rem) 1rem min(6%, 2rem);
+            }
+            .definition {
+                width: max(85%, 450px);
+            }
+            .additional-info, .benefit-info {
+                margin: 2rem 5rem;
+            }
+            #Benefits {
+                padding: 1rem min(6%, 2rem) 1rem min(6%, 2rem);
+            }
+            #FAQs {
+                padding: 1rem min(6%, 2rem) 1rem min(6%, 2rem);
+            }
+            .FAQ-questions {
+                width: max(80%, 500px);
+            }
+        }
+
+        /* Mobile Screen (Landscape) */
+        @media (max-width: 992px) {
+            .compatability-chart {
+                width: min(400px, 50%);
+            }
+            .footer-about-us {
+                flex-direction: column;
+                gap: 0rem;
+            }
+            .about-box {
+                max-width: min(1000px, 90%);
+            }
+            .footer-about-us h3 {
+                font-size: 1rem;
+            }
+            .footer-about-us p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Mobile Screen (Landscape) */
+        @media (max-width: 767px) {
+            .definition {
+                width: max(95%, 450px);
+            }
+            .compatability-chart img {
+                width: 80%;
+            }
+            .hero-text a {
+                font-size: 0.9rem;
+                margin: 1rem 3rem;
+                padding: clamp(.25rem, 35px, 1rem);
+                width: max(75%, 175px);
+                transition: 350ms ease;
+            }
+            .additional-info, .benefit-info {
+                margin: 2rem 0rem;
+            }
+            .FAQ-questions {
+                width: max(100%, 500px);
+            }
+            .hideOnMobile {
+                display: none;
+            }
+            .menu-button {
+                display: block;
+            }
+        }
+
+        /* Mobile Screen (Portrait) */
+        @media (max-width: 576px) {
+            #Home {
+                padding: 0rem min(6%, 2rem) 3rem min(6%, 2rem);
+            }
+            .compatability-chart img {
+                width: 75%;
+            }
+            .hero-text {
+                padding-top: 3rem;
+                margin-bottom: 1rem;
+            }
+            .hero-text p, .definition p, .benefit-header p, .FAQ-header p {
+                font-size: clamp(0.75rem, (0.75dvw + 1rem), 1.15rem);
+            }
+            .additional-info {
+                margin-bottom: 1rem;
+            }
+            .FAQ-header, .FAQ-questions {
+                width: max(75%, 450px)
+            }
+        }
+        /* Small Mobile Screen (Portrait) */
+        @media (max-width: 500px) {
+            .hero-text h1 {
+                font-size: clamp(1.8rem, (5dvw + 3rem), 1rem);
+            } 
+            .hero-text, .definition, .benefit-header, .FAQ-header, .FAQ-questions {
+                max-width: 95%;
+            }
+            .compatability-chart img {
+                width: max(85dvw, 200px);
+            }
+        }
+
+        /* ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        .fade-in.show {
+            animation: fade-in-motion 250ms ease forwards;
+        }
+        @keyframes fade-in-motion {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-logo">
+                <img class="header-image" src="./Media/MHO Logo.png" alt="MHO Logo">
+                <div class="header-text">
+                    <h1>Municipal Health Office</h1>
+                    <p>Jose Panganiban, Camarines Norte</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="hamburger">
+                    <li onclick="hideHamburger()"><a><i class="fa-solid fa-x" style="transform: scaleX(1.1) scale(1.2);"></i></a></li>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#Information">Information</a></li>
+                    <li><a href="#Benefits">Benefits</a></li>
+                    <li><a href="#FAQs">FAQs</a></li>
+                </ul>
+                <ul>
+                    <li class="hideOnMobile"><a href="#Home">Home</a></li>
+                    <li class="hideOnMobile"><a href="#Information">Information</a></li>
+                    <li class="hideOnMobile"><a href="#Benefits">Benefits</a></li>
+                    <li class="hideOnMobile"><a href="#FAQs">FAQs</a></li>
+                    <li class="menu-button" onclick="showHamburger()"><a><i class="fa-solid fa-bars" style="transform: scale(1.5);"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="Home">
+            <div class="hero-text">
+                <div class="hero-header">
+                    <h1>Donate Blood</h1>
+                    <h1 style="color: #16845b;">Save Lives</h1>
+                </div>
+                <p>Mass Blood Donation is a community initiative that unites people through the simple yet meaningful act of donating blood. By bringing donors together, we help replenish vital blood supplies, support patients in need, and make life-saving transfusions possible. Every donation counts, and every donor makes a difference.</p>
+                <a href="#Information">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Learn More</span>
+                </a>
+            </div>
+            <div class="compatability-chart">
+                <img src="./Media/Compatability Chart.png" alt="Blood Compatability Chart">
+            </div>
+        </section>
+        <section id="Information">
+            <div class="definition fade-in">
+                <h1>What is <span style="color: #16845b;">MBD</span>?</h1>
+                <p>Mass Blood Donation (MBD) is a community-based humanitarian initiative that encourages individuals to participate in organized blood donation drives to help maintain an adequate and accessible supply of blood for hospitals and medical institutions. It brings together eligible volunteer donors, healthcare professionals, and community organizations to collect blood safely and efficiently, addressing the continuous demand for blood needed in medical treatments, emergency situations, and life-saving procedures.</p>
+            </div>
+            <div class="additional-info">
+                <div class="info-box fade-in" style="grid-area: box1;">
+                    <h3>Why Blood Donation Matters</h3>
+                    <p>Blood donation helps maintain an adequate blood supply for hospitals and medical facilities. Donated blood is essential for treating accident victims, surgical patients, individuals with blood disorders, and mothers experiencing childbirth complications. Every donation can help save lives and support those in critical need.</p>
+                </div>
+                <div class="info-box fade-in" style="grid-area: box2;">
+                    <h3>The Blood Donation Process</h3>
+                    <p>Blood donation involves four simple steps: registration, health screening, blood collection, and recovery. Healthcare professionals guide donors throughout the process to ensure their safety, comfort, and proper care before and after donating.</p>
+                </div>
+                <div class="info-box fade-in" style="grid-area: box3;">
+                    <h3>The Impact of Your Donation</h3>
+                    <p>A single whole blood donation can be separated into different components, such as red blood cells, plasma, and platelets. These components can help multiple patients with different medical needs, making every successful donation a valuable contribution to saving lives.</p>
+                </div>
+            </div>
+        </section>
+        <section id="Benefits">
+            <div class="benefit-header fade-in">
+                <h1>Donor <span style="color: #16845b;">Benefits</span></h1>
+                <p>Benefits of participating in mass blood donation programs.</p>
+            </div>
+            <div class="benefit-info">
+                <div class="benefit-box fade-in" style="grid-area: box1;">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    <h3>Free Health Screening</h3>
+                    <p>Donors receive a mini-physical checking pulse, blood pressure, body temperature, and hemoglobin levels.</p>
+                </div>
+                <div class="benefit-box fade-in" style="grid-area: box2;">
+                    <i class="fa-solid fa-droplet"></i>
+                    <h3>Blood Testing Insights</h3>
+                    <p>Donated blood is tested for infectious diseases, and donors are notified if anything unusual is found.</p>
+                </div>
+                <div class="benefit-box fade-in" style="grid-area: box3;">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <h3>Cardiovascular Health</h3>
+                    <p>Regular donation can help reduce blood viscosity and lower iron stores, which studies link to a reduced risk of heart attacks and strokes.</p>
+                </div>
+                <div class="benefit-box fade-in" style="grid-area: box4;">
+                    <i class="fa-solid fa-heart-circle-bolt"></i>
+                    <h3>Calorie Burn</h3>
+                    <p>The process of donating blood burns roughly 650 calories as the body works to replenish its blood supply.</p>
+                </div>
+            </div>
+        </section>
+        <section id="FAQs">
+            <div class="FAQ-header fade-in">
+                <h1>Frequently Asked <span style="color: #16845b;">Questions</span></h1>
+                <p>Get the answers to the most common questions about blood donation
+                    and MBD programs.
+                </p>
+            </div>
+            <div class="FAQ-questions">
+
+                <div class="FAQ-block-header fade-in">
+                    <h2>Preparation and Eligibility</h2>
+                    <hr>
+                </div>
+                <div class="FAQ-block">
+                    <!-- Question 1 -->
+                    <details class="accordion-item fade-in">
+                        <summary>
+                            Who is eligible to donate?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>Individuals aged 16 to 65 years old who weigh at least 110 lbs (50 kg) and are in good general health on the day of the donation are eligible. Donors who are 16 or 17 years old will require a signed parental consent form.</p>
+                            <span>Sino-sino ang pwedeng mag-donate ng dugo?</span>
+                            <p class="accordion-translation">
+                                Maaaring mag-donate ang mga indibidwal na may edad 16 hanggang 65 taong gulang, may timbang na hindi bababa sa 110 lbs o 50 kg, at pangkalahatang malusog ang pakiramdam sa araw ng donasyon.</p>
+                        </div>
+                    </details>
+                    <!-- Question 2 -->
+                    <details class="accordion-item fade-in">
+                        <summary>
+                            How should I prepare for a mass blood donation event?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>Get 6 to 8 hours of sleep the night before your donation. Drink plenty of water or juice to stay hydrated, and eat a healthy meal before arriving, while strictly avoiding fatty or greasy foods. Do not drink alcohol for 24 hours prior to donating.</p>
+                            <span>Ano ang mga dapat gawin bago pumunta sa donation site?</span>
+                            <p class="accordion-translation">Siguraduhing may 6 hanggang 8 oras na tulog sa gabi bago ang donasyon. Uminom ng maraming tubig, kumain ng sapat, at iwasan ang mamantika na pagkain at alak.</p>
+                        </div>
+                    </details>
+                    <!-- Question 3 -->
+                    <details class="accordion-item fade-in">
+                        <summary>
+                            Can I donate if I have a tattoo, body piercing, or recently received a vaccine?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>For tattoos and piercings, a 12-month deferral period from the date of the procedure is typically required to ensure safety. For vaccinations, eligibility depends entirely on the specific type of vaccine received; you should disclose this to the screening medical officer on-site.</p>
+                            <span>Puwede bang mag-donate kung may tattoo, piercing, o bakuna?</span>
+                            <p class="accordion-translation">Para sa tattoo at piercing, karaniwang may 12 buwang paghihintay mula sa araw ng pagkaka-tattoo. Para sa mga bakuna, depende ito sa uri kaya mas mabuting itanong sa screening officer.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="FAQ-block-header fade-in">
+                    <h2>Blood Donation Process</h2>
+                    <hr>
+                </div>
+                <div class="FAQ-block">
+                    <!-- Question 1 -->
+                     <details class="accordion-item fade-in">
+                        <summary>
+                            How long does the entire blood donation process take?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>The actual blood extraction takes only 10 to 15 minutes. However, the entire process—including registration, medical history screening, a brief physical exam, and post-donation recovery—takes about 45 minutes to an hour.</p>
+                            <span>Gaano katagal ang buong proseso ng pagkuha ng dugo?</span>
+                            <p class="accordion-translation">Ang mismong pagkuha ng dugo ay tumatagal lamang ng 10 hanggang 15 minuto, ngunit ang buong proseso kasama ang screening ay maaaring umabot ng 45 minuto hanggang 1 oras.</p>
+                        </div>
+                    </details>
+                    <!-- Question 2 -->
+                     <details class="accordion-item fade-in">
+                        <summary>
+                            Does donating blood hurt?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>You will feel a brief pinch or sting (similar to a quick mosquito bite) when the needle is inserted. This minor discomfort subsides quickly, and the rest of the extraction process is generally painless.</p>
+                            <span>Masakit ba ang mag-donate ng dugo?</span>
+                            <p class="accordion-translation">Makakaramdam ka ng bahagyang kurot o tusok na parang kagat ng langgam kapag ipinasok ang karayom, ngunit mabilis ding mawawala ang sakit na ito.</p>
+                        </div>
+                    </details>
+                    <!-- Question 3 -->
+                     <details class="accordion-item fade-in">
+                        <summary>
+                            How much blood is drawn during the session?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>Medical staff will collect 450 milliliters (approximately one bag) of blood. This is a standard, safe amount that represents less than 10% of the average adult's total blood volume.</p>
+                            <span>Gaano karaming dugo ang kinukuha sa bawat donor?</span>
+                            <p class="accordion-translation">Karaniwang 450 mililitro o mga isang bag ng dugo ang kinukuha. Ito ay ligtas na halaga at maliit na bahagi lamang ng kabuuang dugo sa iyong katawan.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="FAQ-block-header fade-in">
+                    <h2>After the Donation</h2>
+                    <hr>
+                </div>
+                <div class="FAQ-block">
+                    <!-- Question 1 -->
+                     <details class="accordion-item fade-in">
+                        <summary>
+                            What should I do or avoid immediately after donating?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>Rest in the recovery area for 10 to 15 minutes and enjoy the complimentary snacks and fluids provided. For the rest of the day, avoid heavy lifting or strenuous exercise, leave the bandage on for a few hours, and continue drinking plenty of liquids.</p>
+                            <span>Ano ang dapat kong gawin o iwasan pagkatapos mag-donate?</span>
+                            <p class="accordion-translation">Manatiling nakaupo o nakahiga muna ng 10 hanggang 15 minuto. Iwasang magbuhat ng mabibigat, huwag gumawa ng mabibigat na ehersisyo, at uminom ng maraming likido.</p>
+                        </div>
+                    </details>
+                    <!-- Question 2 -->
+                     <details class="accordion-item fade-in">
+                        <summary>
+                            Will I feel dizzy or faint after giving blood?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>Some donors experience mild lightheadedness, which is completely normal and quickly resolved by resting, drinking fluids, and eating a small snack. If you feel dizzy, sit down or lie down immediately with your feet elevated until it passes.</p>
+                            <span>Makakaramdam ba ako ng pagkahilo pagkatapos?</span>
+                            <p class="accordion-translation">Ang ilang donors ay nakakaramdam ng bahagyang pagkahilo. Normal ito at nawawala rin pagkatapos uminom ng likido at kumain ng meryenda.</p>
+                        </div>
+                    </details>
+                    <!-- Question 3 -->
+                     <details class="accordion-item fade-in">
+                        <summary>
+                            How quickly does my body replenish the donated blood?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>Your body replaces the lost plasma (fluid portion) within 24 to 48 hours. It takes about 4 to 6 weeks for your bone marrow to fully replace all the donated red blood cells.</p>
+                            <span>Gaano kabilis mapapalitan ng katawan ang ibinigay na dugo?</span>
+                            <p class="accordion-translation">Ang plasma o likidong bahagi ay napapalitan sa loob ng 24 hanggang 48 oras, habang ang mga red blood cells naman ay tumatagal ng 4 hanggang 6 na linggo.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="FAQ-block-header fade-in">
+                    <h2>Myths and Misconceptions</h2>
+                    <hr>
+                </div>
+                <div class="FAQ-block">
+                    <!-- Question 1 -->
+                     <details class="accordion-item fade-in">
+                        <summary>
+                            Can I contract an infection or virus like HIV or Hepatitis by donating blood?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>Absolutely not. The blood donation process is exceptionally safe because sterile, single-use, disposable needles and equipment are used for every single donor and discarded immediately afterward.</p>
+                            <span>Maaari bang makakuha ng sakit gaya ng HIV o Hepatitis sa pagdo-donate?</span>
+                            <p class="accordion-translation">Hindi po. Ligtas ang pag-donate dahil ang lahat ng gagamiting karayom at kagamitan ay bago, sterile, at ginagamit lamang nang isang beses.</p>
+                        </div>
+                    </details>
+                    <!-- Question 2 -->
+                     <details class="accordion-item fade-in">
+                        <summary>
+                            Can women donate blood during their menstrual period?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>Yes, as long as you feel well. If you are not experiencing severe cramps or weakness, and your hemoglobin levels pass the on-site screening test, having your period does not disqualify you from donating.</p>
+                            <span>Bawal ba mag-donate ang mga may regla?</span>
+                            <p class="accordion-translation">Kung ikaw ay may regla ngunit malakas ang pakiramdam at sapat ang iyong hemoglobin level, maaari kang mag-donate.</p>
+                        </div>
+                    </details>
+                    <!-- Question 3 -->
+                     <details class="accordion-item fade-in">
+                        <summary>
+                            Does donating blood cause a person to gain weight?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>No, it does not. There is no medical link between giving blood and gaining weight. In fact, your body burns a small number of calories as it works to naturally synthesize and replenish new blood cells.</p>
+                            <span>Nakakataba ba ang pag-donate ng dugo?</span>
+                            <p class="accordion-translation">Hindi po ito nakakataba. Walang medikal na basehan ito; sa katunayan, nakakatulong pa ito sa pag-burn ng kaunting calories habang gumagawa ng bagong dugo ang katawan.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="FAQ-block-header fade-in">
+                    <h2>Impact and Health Benefits</h2>
+                    <hr>
+                </div>
+                <div class="FAQ-block">
+                    <!-- Question 1 -->
+                     <details class="accordion-item fade-in">
+                        <summary>
+                            How often can a person safely donate blood?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>Healthy individuals can donate whole blood every three months (90 days). This window ensures your body has adequate time to completely rebuild its red blood cell count.</p>
+                            <span>Gaano kadalas maaaring mag-donate ng dugo?</span>
+                            <p class="accordion-translation">Maaaring mag-donate ng dugo tuwing ikatlong buwan o bawat 90 araw upang mabigyan ng sapat na panahon ang katawan na makabuo ng bagong dugo.</p>
+                        </div>
+                    </details>
+                    <!-- Question 2 -->
+                     <details class="accordion-item fade-in">
+                        <summary >
+                            Are there any personal health benefits to donating blood?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>Yes, donating blood helps reduce harmful iron stores in the body, which can lower the risk of cardiovascular disease. You also receive a free mini-physical exam that checks your blood pressure, pulse, and hemoglobin levels.</p>
+                            <span>Ano ang mga personal na benepisyo sa kalusugan ng pagdo-donate?</span>
+                            <p class="accordion-translation">Nakakatulong ito upang mabawasan ang labis na iron sa katawan na nagpapababa ng risk sa sakit sa puso. May kasama rin itong libreng basic health checkup.</p>
+                        </div>
+                    </details>
+                    <!-- Question 3 -->
+                     <details class="accordion-item fade-in">
+                        <summary>
+                            How many lives can be saved with just one blood donation?
+                        </summary>
+                        <div class="accordion-content">
+                            <p>One single bag of blood can save up to three lives. This is because your whole blood can be separated into its distinct components—red blood cells, plasma, and platelets—to help multiple patients with different medical needs.</p>
+                            <span>Ilang buhay ang maaari kong maisalba sa isang bag ng dugo?</span>
+                            <p class="accordion-translation">Ang isang bag ng dugo ay maaaring makapagligtas ng hanggang tatlong buhay dahil maaari itong ihiwalay sa red cells, platelets, at plasma.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="./Media/MHO Logo.png" alt="MHO Logo">
+            </div>
+            <div class="footer-line"><hr></div>
+            <div class="footer-about-us">
+                <div class="institution about-box">
+                    <h1>Municipal Health Unit (MHO) - Jose Panganiban, Camarines Norte</h1>
+                    <p>Jose Panganiban's Rural Health Unit I is a primary government department that delivers basic healthcare and medical services.</p>
+                </div>
+                <div>
+                    <h3>Contact</h3>
+                    <div class="contact-detail">
+                        <i class="fa-regular fa-envelope" style="transform: scale(0.8) translateY(-6px)"></i>
+                        <p>Email: <span style="color: #f7faf7;">mho.jpcn@gmail.com</span></p>
+                    </div>
+                    <div class="contact-detail" style="transform: translateY(-10px);">
+                        <i class="fa-brands fa-facebook faceboook-button" style="transform: scale(0.8) translateY(-6px)"></i>
+                        <p>Facebook: <a href="https://www.facebook.com/mho.josepanganiban.cn" target="_blank" style="color: #f7faf7; text-decoration: none;">mho.josepanganiban.cn</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h3>Operating Hours</h3>
+                    <p>Mon - Fri, 8:00 AM - 5:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const observer = new IntersectionObserver((entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        }, {
+            threshold: 0.05
+        });
+
+        document.querySelectorAll(".fade-in").forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+    <script id="hamburger-menu-script">
+        function showHamburger() {
+            const hamburger = document.querySelector('.hamburger')
+            
+            hamburger.style.display = 'flex'
+        }
+        function hideHamburger() {
+            const hamburger = document.querySelector('.hamburger')
+            
+            hamburger.style.display = 'none'
+        }
+    </script>
+</body>
+</html>
